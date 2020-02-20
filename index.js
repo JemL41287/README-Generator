@@ -97,6 +97,8 @@ ${answer.tests}
 
 ![My Avatar](${image})
 
+(${email})
+
 `
 
 };
@@ -117,7 +119,7 @@ async function getImage(username) {
 
 };
 
-/*async function getEmail(email) {
+async function getEmail(email) {
     try {
         const queryURL = `https://api.github.com/users/${username}`;
         
@@ -130,7 +132,7 @@ async function getImage(username) {
         console.error(error);
     }
 
-};*/
+};
 
 async function getBadge(license) {
     try {
@@ -161,13 +163,13 @@ async function init() {
 
         const image = await getImage(username);
 
-        /*const email = await getEmail(email);*/
+        const email = await getEmail(email);
 
         const license = answers.license;
 
         const banner = await getBadge(license);
 
-        const md = generateMarkdown(answers, image, banner);
+        const md = generateMarkdown(answers, image, banner, email);
 
 
         await writeFileAsync("README.md", md);
