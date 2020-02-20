@@ -11,9 +11,9 @@ test
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [License] (#license)
-* [Contributing] (#contributing)
-* [Tests] (#tests)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
 
 ## Installation
 
