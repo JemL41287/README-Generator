@@ -37,5 +37,5 @@ test
 
 ## Questions
 
-![My Avatar](undefined)
+![My Avatar](https://avatars2.githubusercontent.com/u/57374271?v=4)
 

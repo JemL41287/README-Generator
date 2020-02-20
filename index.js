@@ -107,7 +107,7 @@ async function getImage(username) {
         const queryURL = `https://api.github.com/users/${username}`;
         
         const response = await axios.get(queryURL);
-        const avatarURL = await response.avatar_url;
+        const avatarURL = await response.data.avatar_url;
 
         return avatarURL  
     
