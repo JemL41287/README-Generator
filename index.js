@@ -32,7 +32,7 @@ const questions = [
         message: "Provide instructions and examples for use."
     },
     {
-        type: "input",
+        type: "list",
         name: "license",
         message: "What license did you use?",
         choices: ["MIT", "BSD", "GNU"]
@@ -47,11 +47,6 @@ const questions = [
         name: "tests",
         message: "Write some tests for your application and provide examples on how to run them."
     },
-    {
-        type: "input",
-        name: "questions",
-        message: "Provide questions that may arise for a user when using the application."
-    }
 
 ];
 
@@ -60,7 +55,47 @@ function promptUser() {
 };
 
 function generateMarkdown(answer, image, badge) {
-    return `# ${answer.title}`
+    return `# ${answer.title}
+
+##
+${banner}
+
+## Description
+
+${answer.description}
+
+## Table of Contents
+
+* [Installation](#installation)
+# [Usage](#usage)
+* [License] (#license)
+* [Contributing] (#contributing)
+* [Tests] (#tests)
+
+## Installation
+
+${answer.installation}
+
+## Usage
+
+${answer.usage}
+
+## License
+
+${answer.license}
+
+## Contributing
+
+${answer.contributions}
+
+## Tests
+
+${answer.tests}
+
+![My Avatar] (${image})
+
+`
+
 }
 
 
