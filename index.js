@@ -55,7 +55,7 @@ function promptUser() {
     return inquirer.prompt(questions);
 };
 
-function generateMarkdown(answer, image, badge) {
+function generateMarkdown(answer, image, banner) {
     return `# ${answer.title}
 
 ##
@@ -148,6 +148,37 @@ async function getBadge(license) {
         console.log(error)
     }
 };
+
+async function init() {
+    console.log("Fill in the prompts to create your README file:");
+
+    try {
+        const answers = await promptUser();
+
+        const username = answers.username;
+
+        const image = await getImage(username);
+
+        const email = await getEmail(email);
+
+        const license = answers.license;
+
+        const banner = await getBadge(license);
+
+        const md = generateMarkdown(answers, image, banner);
+
+
+        await writeFileAsync("README.md", md);
+
+        console.log("Succesfully created README.md")
+
+    } catch(err) {
+        console.log(err);
+    }
+
+};
+
+init();
 
 
 
