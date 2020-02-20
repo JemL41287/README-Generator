@@ -95,7 +95,7 @@ ${answer.tests}
 
 ## Questions
 
-![My Avatar] (${image})
+${userImage}
 
 `
 
@@ -107,9 +107,9 @@ async function getImage(username) {
         const queryURL = `https://api.github.com/users/${username}`;
         
         const response = await axios.get(queryURL);
-        const avatar_url = await response.data.avatar_url;
+        const userImage = await response.data.avatar_url;
 
-        return avatar_url
+        return userImage    
     
     } catch (error) {
         console.error(error);
@@ -159,7 +159,7 @@ async function init() {
 
         const username = answers.username;
 
-        const image = await getImage(username);
+        const userImage = await getImage(username);
 
         /*const email = await getEmail(email);*/
 
@@ -167,7 +167,7 @@ async function init() {
 
         const banner = await getBadge(license);
 
-        const md = generateMarkdown(answers, image, banner);
+        const md = generateMarkdown(answers, userImage, banner);
 
 
         await writeFileAsync("README.md", md);
