@@ -96,17 +96,25 @@ ${answer.tests}
 
 `
 
-}
+};
+
+
+async function getImage(username) {
+    try {
+        const queryURL = `https://api.github.com/users/${username}`;
+        
+        const response = await axios.get(queryURL);
+        const avatar = await response.data.avatar_url;
+        const email = await response.data.email;
+
+        return avatar
+        return email
+    
+    } catch (error) {
+        console.error(error);
+    }
+
+};
 
 
 
-
-
-function writeToFile(fileName, data) {
-}
-
-function init() {
-
-}
-
-init();
