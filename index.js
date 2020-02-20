@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
+const util = require("util");
 
 const writeFileAsync = util.promisfy(fs.writeFile);
 
@@ -105,9 +106,22 @@ async function getImage(username) {
         
         const response = await axios.get(queryURL);
         const avatar = await response.data.avatar_url;
-        const email = await response.data.email;
 
         return avatar
+    
+    } catch (error) {
+        console.error(error);
+    }
+
+};
+
+async function getEmail(email) {
+    try {
+        const queryURL = `https://api.github.com/users/${username}`;
+        
+        const response = await axios.get(queryURL);
+        const email = await response.data.email;
+
         return email
     
     } catch (error) {
@@ -115,6 +129,26 @@ async function getImage(username) {
     }
 
 };
+
+async function getBadge(license) {
+    try {
+        if (license === "MIT") {
+            return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+        };
+        if (license === "BSD") {
+            return "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
+        };
+
+        if (license === "GNU") {
+            return "[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)"
+        };
+
+    }
+    catch(error) {
+        console.log(error)
+    }
+};
+
 
 
 
