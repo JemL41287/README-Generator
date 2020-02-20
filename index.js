@@ -2,7 +2,9 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
 
-inquirer.prompt([
+const writeFileAsync = util.promisfy(fs.writeFile);
+
+const questions = [
     {
         type: "input",
         name: "username",
@@ -21,11 +23,6 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "contents",
-        message: "Provide a table of contents for your application."
-    },
-    {
-        type: "input",
         name: "installation",
         message: "Provide a step-by-step description of how to get the development environment running."
     },
@@ -37,11 +34,12 @@ inquirer.prompt([
     {
         type: "input",
         name: "license",
-        message: "Provide a license for your application."
+        message: "What license did you use?",
+        choices: ["MIT", "BSD", "GNU"]
     },
     {
         type: "input",
-        name: "contributing",
+        name: "contributions",
         message: "If you created an application or package and would like other developers to contribute it, provide those guidelines here."
     },
     {
@@ -55,22 +53,19 @@ inquirer.prompt([
         message: "Provide questions that may arise for a user when using the application."
     }
 
-]).then(function ({ username }) {
-            const queryURL = `https://api.github.com/users/${username}`;
-
-            axios.get(queryURL).then(function (res) {
-                const email = res.data.email;
-                const imageURL = res.data.avatar_url;
-
-
-            })
-        })
-
-
-
-const questions = [
-
 ];
+
+function promptUser() {
+    return inquirer.prompt(questions);
+};
+
+function generateMarkdown(answer, image, badge) {
+    return `# ${answer.title}`
+}
+
+
+
+
 
 function writeToFile(fileName, data) {
 }
