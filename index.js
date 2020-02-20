@@ -3,7 +3,7 @@ const fs = require("fs");
 const axios = require("axios");
 const util = require("util");
 
-const writeFileAsync = util.promisfy(fs.writeFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 const questions = [
     {
@@ -115,7 +115,7 @@ async function getImage(username) {
 
 };
 
-async function getEmail(email) {
+/*async function getEmail(email) {
     try {
         const queryURL = `https://api.github.com/users/${username}`;
         
@@ -128,7 +128,7 @@ async function getEmail(email) {
         console.error(error);
     }
 
-};
+};*/
 
 async function getBadge(license) {
     try {
@@ -159,7 +159,7 @@ async function init() {
 
         const image = await getImage(username);
 
-        const email = await getEmail(email);
+        /*const email = await getEmail(email);*/
 
         const license = answers.license;
 
