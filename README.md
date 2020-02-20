@@ -10,7 +10,7 @@ test
 ## Table of Contents
 
 * [Installation](#installation)
-# [Usage](#usage)
+* [Usage](#usage)
 * [License] (#license)
 * [Contributing] (#contributing)
 * [Tests] (#tests)
