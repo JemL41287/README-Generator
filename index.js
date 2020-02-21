@@ -55,7 +55,7 @@ function promptUser() {
     return inquirer.prompt(questions);
 };
 
-function generateMarkdown(answer, image, banner) {
+function generateMarkdown(answer, image, banner, email) {
     return `# ${answer.title}
 
 ##
@@ -97,7 +97,7 @@ ${answer.tests}
 
 ![My Avatar](${image})
 
-(${email})
+Email: [${email}] (${email})
 
 `
 
@@ -110,8 +110,9 @@ async function getImage(username) {
         
         const response = await axios.get(queryURL);
         const avatarURL = await response.data.avatar_url;
+        const email = await response.data.email;
 
-        return avatarURL  
+        return avatarURL, email 
     
     } catch (error) {
         console.error(error);
@@ -119,7 +120,7 @@ async function getImage(username) {
 
 };
 
-async function getEmail(email) {
+/*async function getEmail(email) {
     try {
         const queryURL = `https://api.github.com/users/${username}`;
         
@@ -132,7 +133,7 @@ async function getEmail(email) {
         console.error(error);
     }
 
-};
+};*/
 
 async function getBadge(license) {
     try {
@@ -163,7 +164,7 @@ async function init() {
 
         const image = await getImage(username);
 
-        const email = await getEmail(email);
+        const email = await getImage(username);
 
         const license = answers.license;
 
