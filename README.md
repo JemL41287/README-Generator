@@ -37,7 +37,7 @@ test
 
 ## Questions
 
-![My Avatar](null)
+(null)
 
-Email: [null] (null)
+Email: (null)
 

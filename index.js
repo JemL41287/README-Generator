@@ -95,9 +95,9 @@ ${answer.tests}
 
 ## Questions
 
-![My Avatar](${image})
+(${image})
 
-Email: [${email}] (${email})
+Email: (${email})
 
 `
 
