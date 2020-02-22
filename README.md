@@ -37,7 +37,7 @@ test
 
 ## Questions
 
-![alt text](https://avatars2.githubusercontent.com/u/57374271?v=4"Logo Title Text 1")
+![My image](https://avatars2.githubusercontent.com/u/57374271?v=4)
 
 
 Email: (null)
