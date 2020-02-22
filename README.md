@@ -37,7 +37,7 @@ test
 
 ## Questions
 
-([object Object])
+(https://avatars2.githubusercontent.com/u/57374271?v=4)
 
-Email: ([object Object])
+Email: (null)
 

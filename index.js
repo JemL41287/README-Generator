@@ -171,7 +171,7 @@ console.log(email)
 
         const banner = await getBadge(license);
 
-        const md = generateMarkdown(answers, image, banner, email);
+        const md = generateMarkdown(answers, image.avatarURL, banner, image.email);
 
 
         await writeFileAsync("README.md", md);
