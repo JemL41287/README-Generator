@@ -110,9 +110,10 @@ async function getImage(username) {
         
         const response = await axios.get(queryURL);
         const avatarURL = await response.data.avatar_url;
+        console.log(avatarURL)
         const email = await response.data.email;
-
-        return avatarURL, email 
+        console.log(email)
+        return {avatarURL : avatarURL, email: email }
     
     } catch (error) {
         console.error(error);
@@ -159,13 +160,13 @@ async function init() {
 
     try {
         const answers = await promptUser();
-
+        console.log(answers);
         const username = answers.username;
 
         const image = await getImage(username);
-
+console.log(image)
         const email = await getImage(username);
-
+console.log(email)
         const license = answers.license;
 
         const banner = await getBadge(license);
