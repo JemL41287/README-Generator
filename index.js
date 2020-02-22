@@ -95,7 +95,8 @@ ${answer.tests}
 
 ## Questions
 
-(${image})
+![alt text](${image}"Logo Title Text 1")
+
 
 Email: (${email})
 
