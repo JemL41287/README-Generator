@@ -55,7 +55,7 @@ function promptUser() {
     return inquirer.prompt(questions);
 };
 
-function generateMarkdown(answer, image, banner, email) {
+function generateMarkdown(answer, image, banner, htmlURL) {
     return `# ${answer.title}
 
 ##
@@ -95,10 +95,9 @@ ${answer.tests}
 
 ## Questions
 
-![My image](${image})
+![My image](${image || 'N/A'})
 
-
-Email: (${email})
+If you have any questions about the repo, open an issue or contact (${htmlURL}).
 
 `
 
@@ -111,10 +110,9 @@ async function getImage(username) {
         
         const response = await axios.get(queryURL);
         const avatarURL = await response.data.avatar_url;
-        console.log(avatarURL)
-        const email = await response.data.email;
-        console.log(email)
-        return {avatarURL : avatarURL, email: email }
+        const htmlURL = await response.data.html_url;
+
+        return {avatarURL : avatarURL, htmlURL: htmlURL}
     
     } catch (error) {
         console.error(error);
@@ -122,20 +120,6 @@ async function getImage(username) {
 
 };
 
-/*async function getEmail(email) {
-    try {
-        const queryURL = `https://api.github.com/users/${username}`;
-        
-        const response = await axios.get(queryURL);
-        const email = await response.data.email;
-
-        return email
-    
-    } catch (error) {
-        console.error(error);
-    }
-
-};*/
 
 async function getBadge(license) {
     try {
@@ -164,15 +148,14 @@ async function init() {
         console.log(answers);
         const username = answers.username;
 
-        const image = await getImage(username);
-console.log(image)
-        const email = await getImage(username);
-console.log(email)
+        const avatarURL = await getImage(username);
+        console.log(avatarURL)
+
         const license = answers.license;
 
         const banner = await getBadge(license);
 
-        const md = generateMarkdown(answers, image.avatarURL, banner, image.email);
+        const md = generateMarkdown(answers, avatarURL, banner);
 
 
         await writeFileAsync("README.md", md);
@@ -186,7 +169,4 @@ console.log(email)
 };
 
 init();
-
-
-
 
