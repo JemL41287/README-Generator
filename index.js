@@ -58,7 +58,7 @@ function promptUser() {
 function generateMarkdown(answer, image, banner) {
     return `# ${answer.title}
 
-##
+#
 ${banner}
 
 ## Description
