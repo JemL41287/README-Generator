@@ -37,7 +37,5 @@ test
 
 ## Questions
 
-![My image]([object Object])
-
-If you have any questions about the repo, open an issue or contact (undefined).
+![My image](https://avatars2.githubusercontent.com/u/57374271?v=4)
 

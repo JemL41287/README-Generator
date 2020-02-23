@@ -55,7 +55,7 @@ function promptUser() {
     return inquirer.prompt(questions);
 };
 
-function generateMarkdown(answer, image, banner, htmlURL) {
+function generateMarkdown(answer, image, banner) {
     return `# ${answer.title}
 
 ##
@@ -97,8 +97,6 @@ ${answer.tests}
 
 ![My image](${image || 'N/A'})
 
-If you have any questions about the repo, open an issue or contact (${htmlURL}).
-
 `
 
 };
@@ -110,9 +108,8 @@ async function getImage(username) {
         
         const response = await axios.get(queryURL);
         const avatarURL = await response.data.avatar_url;
-        const htmlURL = await response.data.html_url;
 
-        return {avatarURL : avatarURL, htmlURL: htmlURL}
+        return avatarURL
     
     } catch (error) {
         console.error(error);
