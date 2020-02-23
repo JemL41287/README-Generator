@@ -56,48 +56,50 @@ function promptUser() {
 };
 
 function generateMarkdown(answer, image, banner) {
-    return `# ${answer.title}
+    return `
 
-#
-${banner}
+    # ${answer.title}
 
-## Description
+    ##
+    ${banner}
 
-${answer.description}
+    ## Description
 
-## Table of Contents
+    ${answer.description}
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contributing](#contributing)
-* [Tests](#tests)
+    ## Table of Contents
 
-## Installation
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [License](#license)
+    * [Contributing](#contributing)
+    * [Tests](#tests)
 
-${answer.installation}
+    ## Installation
 
-## Usage
+    ${answer.installation}
 
-${answer.usage}
+    ## Usage
 
-## License
+    ${answer.usage}
 
-${answer.license}
+    ## License
 
-## Contributing
+    ${answer.license}
 
-${answer.contributions}
+    ## Contributing
 
-## Tests
+    ${answer.contributions}
 
-${answer.tests}
+    ## Tests
 
-## Questions
+    ${answer.tests}
 
-![My image](${image || 'N/A'})
+    ## Questions
 
-`
+    ![My image](${image || 'N/A'})
+
+    `
 
 };
 
