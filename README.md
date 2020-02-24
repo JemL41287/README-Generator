@@ -43,3 +43,5 @@ npm test
 
 ![My image](https://avatars2.githubusercontent.com/u/57374271?v=4)
 
+If you have any questions about the repo, open an issue or contact jennifer.lindsey.mullin@gmail.com.
+
