@@ -7,6 +7,10 @@
 
 This is a command-line application that dynamically generates a README.md file from a user’s input. 
 
+## Demo
+
+![Demo](/assets/readmedemo.gif)
+
 ## Table of Contents
 
 * [Installation](#installation)
@@ -29,7 +33,7 @@ MIT
 
 ## Contributing
 
-
+Jennifer Mullin
 
 ## Tests
 
