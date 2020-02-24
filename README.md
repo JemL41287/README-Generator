@@ -5,11 +5,11 @@
 
 ## Description
 
-This is a command-line application that dynamically generates a README.md file from a user’s input. 
+This is a command-line application that dynamically generates a README.md file from a user’s input.
 
 ## Demo
 
-![Demo](/assets/readmedemo.gif)
+![Demo](demo.gif)
 
 ## Table of Contents
 
