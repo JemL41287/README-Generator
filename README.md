@@ -9,7 +9,7 @@ This is a command-line application that dynamically generates a README.md file f
 
 ## Demo
 
-![Demo](demo.gif)
+![Demo](/assets/demo.gif)
 
 ## Table of Contents
 
